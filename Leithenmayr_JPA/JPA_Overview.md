@@ -3,15 +3,15 @@
 ## Table of Contents
 1. [Allgemeines](#allgemeines)
 2. [Grundprinzip](#grundprinzip)
-    2.1 [ORM](#orm)
+    <br>2.1 [ORM](#orm)<br>
     2.2 [persistence.xml](#persistencexml)
-    2.3 [Unterschied JavaSE vs. JavaEE](#unterschied-javase-vs-javaee-maven)
+    <br>2.3 [Unterschied JavaSE vs. JavaEE](#unterschied-javase-vs-javaee-maven)
 3. [Beziehungen](#beziehungen)
-    3.1 [Unterschied Bidirektional vs. Unidirektional](#unterschied-bidirektional-vs-unidirektional)
-    3.2 [Arten](#arten)
-    3.3 [Aufbau einer Entität](#aufbau-einer-entität)
-    3.4 [Id - Vergabe](#id-vergabe)
-    3.5 [EntityManager](#entitymanager)
+    <br>3.1 [Unterschied Bidirektional vs. Unidirektional](#unterschied-bidirektional-vs-unidirektional)
+    <br>3.2 [Arten](#arten)
+    <br>3.3 [Aufbau einer Entität](#aufbau-einer-entität)
+    <br>3.4 [Id - Vergabe](#id-vergabe)
+    <br>3.5 [EntityManager](#entitymanager)
 4. [JP-QL](#jp-ql)
 5. [CRUD - Operationen](#crud-operationen)
 6. [Zustände eines Objektes](#zustände-eines-objektes)
@@ -35,11 +35,11 @@ Ein OR – Mapper, hat die Aufgabe eine relationale Datenbank, welche in Tabelle
 es in einer Objektorientierten Programmiersprache gibt (Vererbung, Collections, etc.) in einer relationalen Datenbank abbilden. Weiteres kümmert sich ein ORM, dass die Datentypen korrekt umgewandelt werden. Sprich in einer relationalen Datenbank, wie z.B. mySQL gibt es keinen Datentyp *string*. Dafür muss der Datentyp *varchar* verwendet werden.
 
 Beispiel: Entität "Car" wird in eine relationale Tabelle verwandelt
-![ORM Beispiel](/images/orm_example.png)
+![ORM Beispiel](images/orm_example.png)
 
 ### persistence.xml
 In JavaEE, sowie JavaSE benötigt man eine persistence.xml - Datei, die sich im resources/META-INF Ordner befinden muss.
-![Ordner Struktur](/images/folder_structure.png)
+![Ordner Struktur](images/folder_structure.png)
 
 Die persistence.xml - Datei ist das zentrale Stück für die Konfiguration.
 
@@ -133,7 +133,7 @@ Wichtigsten Schritte:
 * leeren Konstruktor erstellen
 
 Beispiel:
-![Basic](/images/basic.png)
+![Basic](images/basic.png)
 
 **Wichtig**: Wird kein Applikationserver (Glasfisch, Wildfly, ...) verwendet, sprich JPA in einer JavaSE - Anwendung verwendet, so muss man im persistence.xml die zu persistierenden Klassen eintragen.
 
