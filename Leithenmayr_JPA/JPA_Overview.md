@@ -38,7 +38,7 @@ Beispiel: Entität "Car" wird in eine relationale Tabelle verwandelt
 ![ORM Beispiel](images/orm_example.png)
 
 ### persistence.xml
-In JavaEE, sowie JavaSE benötigt man eine persistence.xml - Datei, die sich im resources/META-INF Ordner befinden muss.
+In JavaEE, sowie JavaSE benötigt man eine persistence.xml - Datei, die sich im resources/META-INF Ordner befinden muss.<br>
 ![Ordner Struktur](images/folder_structure.png)
 
 Die persistence.xml - Datei ist das zentrale Stück für die Konfiguration.
@@ -131,8 +131,8 @@ Wichtigsten Schritte:
 * Entität mit @Entity annotieren
 * Primärschlüssel mit @Id kennzeichnen
 * leeren Konstruktor erstellen
-
-Beispiel:
+<br>
+Beispiel:<br>
 ![Basic](images/basic.png)
 
 **Wichtig**: Wird kein Applikationserver (Glasfisch, Wildfly, ...) verwendet, sprich JPA in einer JavaSE - Anwendung verwendet, so muss man im persistence.xml die zu persistierenden Klassen eintragen.
