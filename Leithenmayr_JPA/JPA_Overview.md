@@ -10,7 +10,7 @@
     <br>3.1 [Unterschied Bidirektional vs. Unidirektional](#unterschied-bidirektional-vs-unidirektional)
     <br>3.2 [Arten](#arten)
     <br>3.3 [Aufbau einer Entität](#aufbau-einer-entität)
-    <br>3.4 [Id - Vergabe](#id-vergabe)
+    <br>3.4 [Id - Vergabe](#id---vergabe)
     <br>3.5 [EntityManager](#entitymanager)
 4. [JP-QL](#jp-ql)
 5. [CRUD - Operationen](#crud-operationen)
@@ -132,7 +132,8 @@ Wichtigsten Schritte:
 * Primärschlüssel mit @Id kennzeichnen
 * leeren Konstruktor erstellen
 <br>
-Beispiel:<br>
+Beispiel:
+
 ![Basic](images/basic.png)
 
 **Wichtig**: Wird kein Applikationserver (Glasfisch, Wildfly, ...) verwendet, sprich JPA in einer JavaSE - Anwendung verwendet, so muss man im persistence.xml die zu persistierenden Klassen eintragen.
