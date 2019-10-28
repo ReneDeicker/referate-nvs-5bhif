@@ -133,13 +133,12 @@ Wichtigsten Schritte:
 * leeren Konstruktor erstellen
 <br>
 Beispiel:
-<class>at.htl.vehicle.entity.Vehicle</class>`
 
 ![Basic](images/basic.png)
 
 **Wichtig**: Wird kein Applikationserver (Glasfisch, Wildfly, ...) verwendet, sprich JPA in einer JavaSE - Anwendung verwendet, so muss man im persistence.xml die zu persistierenden Klassen eintragen.
 
-Beispiel:
+Beispiel: `<class>at.htl.vehicle.entity.Vehicle</class>`
 
 ### Id - Vergabe
 
