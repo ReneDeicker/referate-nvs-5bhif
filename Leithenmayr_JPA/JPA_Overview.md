@@ -133,6 +133,7 @@ Wichtigsten Schritte:
 * leeren Konstruktor erstellen
 <br>
 Beispiel:
+<class>at.htl.vehicle.entity.Vehicle</class>`
 
 ![Basic](images/basic.png)
 
