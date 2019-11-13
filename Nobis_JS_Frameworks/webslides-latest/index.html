@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <title>JavaScript + Frameworks</title>
+  <meta name="description" content="Kurzbeschreibung JavaScript | Kurzbeschreibung Frameworks">
+
+  <!-- URL CANONICAL -->
+  <!-- <link rel="canonical" href="http://your-url.com/"> -->
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext"
+    rel="stylesheet">
+
+  <!-- CSS WebSlides -->
+  <link rel="stylesheet" type='text/css' media='all' href="static/css/webslides.css">
+
+  <!-- Optional - CSS SVG Icons (Font Awesome) -->
+  <link rel="stylesheet" type='text/css' media='all' href="static/css/svg-icons.css">
+
+  <!-- SOCIAL CARDS (ADD YOUR INFO) -->
+
+  <!-- FACEBOOK -->
+  <meta property="og:url" content="http://your-url.com/"> <!-- YOUR URL -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="WebSlides — Making HTML Presentations Easy"> <!-- EDIT -->
+  <meta property="og:description"
+    content="WebSlides is about telling stories beautifully. Just the essential features. Good karma."> <!-- EDIT -->
+  <meta property="og:updated_time" content="2017-01-04T17:20:50"> <!-- EDIT -->
+  <meta property="og:image" content="static/images/share-webslides.jpg"> <!-- EDIT -->
+
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@webslides"> <!-- EDIT -->
+  <meta name="twitter:creator" content="@jlantunez"> <!-- EDIT -->
+  <meta name="twitter:title" content="WebSlides — Making HTML Presentations Easy"> <!-- EDIT -->
+  <meta name="twitter:description"
+    content="WebSlides is about good karma. Just essential features. 120+ free slides ready to use."> <!-- EDIT -->
+  <meta name="twitter:image" content="static/images/share-webslides.jpg"> <!-- EDIT -->
+
+  <!-- FAVICONS -->
+  <link rel="shortcut icon" sizes="16x16" href="static/images/favicons/favicon.png">
+  <link rel="shortcut icon" sizes="32x32" href="static/images/favicons/favicon-32.png">
+  <link rel="apple-touch-icon icon" sizes="76x76" href="static/images/favicons/favicon-76.png">
+  <link rel="apple-touch-icon icon" sizes="120x120" href="static/images/favicons/favicon-120.png">
+  <link rel="apple-touch-icon icon" sizes="152x152" href="static/images/favicons/favicon-152.png">
+  <link rel="apple-touch-icon icon" sizes="180x180" href="static/images/favicons/favicon-180.png">
+  <link rel="apple-touch-icon icon" sizes="192x192" href="static/images/favicons/favicon-192.png">
+
+  <!-- Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#333333">
+
+</head>
+
+<!-- Integrate into presentation
+
+  Overview of most popular js frameworks (+ image on internet)
+  Angular vs. Vue vs. React
+  JavaScript vs. Typescript  
+  -->
+
+<body>
+  <main role="main">
+    <article id="webslides" class="vertical">
+      <!-- Quick Guide
+          - Each parent <section> in the <article id="webslides"> element is an individual slide.
+          - Vertical sliding = <article id="webslides" class="vertical">
+          - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
+        -->
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap aligncenter">
+          <h1 style="font-size: 4em;"><strong>JavaScript + Frameworks</strong></h1>
+          <p style="margin-top: 20px;" class="text-intro">Eine Präsentation von Julian Nobis
+          </p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Was ist JavaScript?</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap aligncenter">
+          <h1><img height="200px" width="200px" src="https://dreamlogic.io/img/brands/logos/js.png">
+          </h1>
+        </div>
+        <div class="wrap slide-top content-center">
+          <br><br>
+          <p style="font-size: 2em;"><strong>Skriptsprache</strong>, um dynamische HTML-Seiten per Webbrowser anzuzeigen
+          </p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="margin-top: 10px;"><strong>Stack Overflow Developer Survey Results</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap aligncenter">
+          <h1><img width="550px" height="550px" src="static/images/most_popular_technologies.png"></h1>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Funktionen sind Objekte</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;">Prototype <i><strong>__proto__</strong></i> ist die Basisklasse (Vererbung)</p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Clonen eines Objekts</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;">Spread Operator: { <strong>...</strong> circle }</p>
+          <p style="font-size: 2em;">Object<strong>.assign(</strong>{}, circle<strong>)</strong></p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Arrow Functions + Reduce()</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>Arrow Function</strong> → Funktion als Callback-Funktion übergeben </p>
+          <p style="font-size: 2em;"><strong>Reduce()</strong> → Reduziert ein Array auf einen einzigen Wert und führt
+            die callback-Funktion für jedes existierende Element in dem Array aus</p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Hoisting</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>Hoisting</strong> → Function Declarations werden beim Ausführen des Codes
+            automatisch nach
+            oben gebracht</p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Rest Operator</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;">Wird bei einer <strong>variierenden</strong> Anzahl an <strong>Parametern</strong>
+            verwendet.</p>
+          <p style="font-size: 2em;">Pendant zum Spread Operator</p>
+          <p style="font-size: 2em;">function sum( <strong>...</strong>args )</p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Erstellen eines Objektes</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>Object Literal Syntax</strong> → const circle = <strong>{}</strong>;</p>
+          <p style="font-size: 2em;"><strong>Factory Methode</strong> → const circle = <strong>createCircle(1)</strong>;
+          </p>
+          <p style="font-size: 2em;"><strong>Konstruktor</strong> → const circle = <br><strong>new Circle(1)</strong>;
+          </p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>ECMAScript 6 (ES6)</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>let</strong> und <strong> const</strong></p>
+          <p style="font-size: 2em;"><strong>Arrow Functions</strong></p>
+          <p style="font-size: 2em;"><strong>Classes</strong></p>
+          <br>
+          <p style="font-size: 2em;">Wird untersützt von Firefox, Chrome, Edge, Safari und Opera</p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>ES6 Classes</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>Syntaxerweiterung</strong> → <br>"syntactic sugar"</p>
+          <p style="font-size: 2em;"><strong>Getter</strong> und <strong>Setter</strong></p>
+          <p style="font-size: 2em;"><strong>Vererbung</strong></p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background"
+          style="background-image:url('https://jelvix.com/wp-content/uploads/2019/08/5a186830155ab.jpg')"></span>
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="margin-top: 10px;"><strong>Stack Overflow Developer Survey Results</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap aligncenter">
+          <h1><img width="550px" height="550px" src="static/images/most_popular_webtechnologies.png"></h1>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>JavaScript vs. Typescript</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>Programmiersprache</strong>, basiert auf ES6</p>
+          <p style="font-size: 2em;"><strong>"TypeScript ist JavaScript"</strong></p>
+          <p style="font-size: 2em;"><strong>OOP</strong></p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Angular</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap aligncenter">
+          <h1><img height="150" width="150" src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg">
+          </h1>
+        </div>
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>TypeScript</strong> basiertes <strong>Open-Source</strong>
+            JavaScript-Framework von <strong>Google</strong></p>
+          <p style="font-size: 2em;">Plattformunabhängig und komponentenbasiert</p>
+          <p style="font-size: 2em;"></p>
+        </div>
+
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>React</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap aligncenter">
+          <h1><img height="150" width="150"
+              src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png">
+          </h1>
+        </div>
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>Open-Source</strong> JavaScript <strong>Bibliothek</strong> von
+            <strong>Facebook</strong></p>
+          <p style="font-size: 2em;">Gestaltung performanter Oberflächen (<strong>virtual DOM</strong>)</p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>React - Routing</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <h1><img src="static/images/react_routing.png">
+          </h1>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Vue</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap aligncenter">
+          <h1><img height="150" width="150" src="https://vuejs.org/images/logo.png">
+          </h1>
+        </div>
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>Open-Source Framework</strong>, veröffentlicht von Evan You</p>
+          <p style="font-size: 2em;"><strong>Skalierungsmöglichkeiten</strong></p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Vue - Hello World + Binding</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <h1><img
+              src="https://www.hosteurope.de/blog/wp-content/uploads/2019/05/einf%C3%BChrung-in-vue-js-abbildung3-931x1024.png">
+          </h1>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Performance</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>Angular</strong> → <strong>real DOM</strong> → langsam</p>
+          <p style="font-size: 2em;"><strong>React</strong> → <strong>virtual DOM</strong> → schnell</p>
+          <p style="font-size: 2em;"><strong>Vue</strong> → <strong>virtual DOM</strong> → schnell</p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Community Unterstützung</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>Angular</strong> → <strong>sehr gut</strong></p>
+          <p style="font-size: 2em;"><strong>React</strong> → <strong>sehr gut</strong></p>
+          <p style="font-size: 2em;"><strong>Vue</strong> → <strong>sehr gut</strong></p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Framework Größe</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>Angular</strong> → <strong>500+ KB</strong> → Schwergewicht</p>
+          <p style="font-size: 2em;"><strong>React</strong> → <strong>100 KB</strong> → deutlich leichter</p>
+          <p style="font-size: 2em;"><strong>Vue</strong> → <strong>80 KB</strong> → am leichtesten</p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Flexibilität</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>Angular</strong> → <strong>unflexibel</strong></p>
+          <p style="font-size: 2em;"><strong>React</strong> → <strong>flexibel</strong></p>
+          <p style="font-size: 2em;"><strong>Vue</strong> → <strong>flexibel</strong></p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Schlussfolgerung</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p style="font-size: 2em;"><strong>Angular</strong> → <strong>große Projektteams</strong> und UI Applikationen
+          </p>
+          <p style="font-size: 2em;"><strong>React</strong> → <strong>leichtgewichtige</strong> kleinere Applikationen
+          </p>
+          <p style="font-size: 2em;"><strong>Vue</strong> → <strong>leichtgewichtige</strong> kleinere Applikationen</p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <header>
+          <div class="wrap aligncenter">
+            <h1 style="font-size: 4em; margin-top: 20px;"><strong>Quellen</strong></h1>
+          </div>
+        </header>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap slide-top content-center">
+          <p>https://insights.stackoverflow.com/survey/2019<br>
+            https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce<br>
+            https://medium.com/hackernoon/angular-vs-react-vs-vue-which-is-the-best-choice-for-2019-16ce0deb3847<br>
+            https://medium.com/brickmakers/react-eine-einf%C3%BChrung-in-f%C3%BCnf-minuten-515dc38ceb73<br>
+            Udemy Course von Mosh Hamedani: <strong>“JavaScript Basics for Beginners”</strong><br>
+            Udemy Course von Mosh Hamedani: <strong>“Object-oriented programming in JavaScript”</strong><br>
+          </p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <span class="background" style="background-color: lavender;"></span>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap aligncenter">
+          <h1 style="font-size: 4em;"><strong>Vielen Dank für Ihre Aufmerksamkeit</strong></h1>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+    </article>
+    <!-- end article -->
+  </main>
+  <!-- end main -->
+
+  <!-- A global footer
+
+     <footer role="contentinfo">
+      <div class="wrap">
+        <p>An <a href="https://github.com/webslides/webslides">open source solution</a>, by <a href="https://twitter.com/webslides">@webslides</a>.</p>
+      </div>
+    </footer>  -->
+
+  <!-- Required -->
+  <script src="static/js/webslides.js"></script>
+  <script>
+    window.ws = new WebSlides();
+  </script>
+
+  <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+  <script defer src="static/js/svg-icons.js"></script>
+
+</body>
+
+</html>
