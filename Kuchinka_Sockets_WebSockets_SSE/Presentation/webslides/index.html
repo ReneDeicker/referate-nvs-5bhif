@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sockets, WebSockets & SSE</title>
+  <meta name="description"
+    content="WebSlides is the easiest way to make HTML presentations, portfolios, and landings. Just essential features.">
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext"
+    rel="stylesheet">
+
+  <link rel="stylesheet" type='text/css' media='all' href="static/css/webslides.css">
+
+  <link rel="stylesheet" type='text/css' media='all' href="static/css/svg-icons.css">
+
+</head>
+
+<body>
+  <main role="main">
+    <article id="webslides" class="vertical">
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1><strong>Sockets, WebSockets & SSE</strong></h1>
+          <p class="text-intro">Leon Kuchinka</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1><strong>Worum geht es?</strong></h1>
+          <h4>Client-Server-Kommunikation</h4>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1><strong>Worin besteht die Gemeinsamkeit?</strong></h1>
+          <figure>
+            <img src="./static/images/server_push.png">
+          </figure>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1><strong>Sockets</strong></h1>
+          <div class="grid vertical-align">
+            <div class="column">
+              <ul>
+                <li>
+                  <h4>Kommunikationsendpunkte</h4>
+                </li>
+                <li>
+                  <h4>Identifiziert durch IP & Port</h4>
+                </li>
+                <li>
+                  <h4>Basiert auf TCP</h4>
+                </li>
+              </ul>
+            </div>
+            <div class="column">
+              <figure>
+                <img src="./static/images/bidirectional.png">
+                <figcaption>
+                  <h5>bidirektionale Kommunikation</h5>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <div class="column">
+            <h3><strong>Sockets</strong></h3>
+            <figure>
+              <img src="./static/images/sockets.png">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1><strong>WebSockets</strong></h1>
+          <div class="grid vertical-align">
+            <div class="column">
+              <ul>
+                <li>
+                  <h4>Opening Handshake</h4>
+                </li>
+                <li>
+                  <h4>Für Browser entwickelt</h4>
+                </li>
+                <li>
+                  <h4>Echtzeitapplikationen: Games, Chats, usw.</h4>
+                </li>
+              </ul>
+            </div>
+            <div class="column">
+              <figure>
+                <img src="./static/images/bidirectional.png">
+                <figcaption>
+                  <h5>bidirektionale Kommunikation</h5>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <div class="column">
+            <h3><strong>WebSockets</strong></h3>
+            <figure>
+              <img src="./static/images/websockets.png">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1><strong>Server Sent Events</strong></h1>
+          <div class="grid vertical-align">
+            <div class="column">
+              <ul>
+                <li>
+                  <h4>Publish-Subscribe</h4>
+                </li>
+                <li>
+                  <h4>Basiert auf HTTP</h4>
+                </li>
+                <li>
+                  <h4>Echtzeit-Feeds: Live-Ticker, Monitoring, usw.</h4>
+                </li>
+              </ul>
+            </div>
+            <div class="column">
+              <figure>
+                <img src="./static/images/unidirectional.png">
+                <figcaption>
+                  <h5>unidirektionale Kommunikation</h5>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <div class="column">
+            <h3><strong>Server Sent Events</strong></h3>
+            <figure>
+              <img src="./static/images/sse.png">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <div class="column">
+            <h3><strong>Quellen</strong></h3>
+            <ul>
+              <li>
+                <p>http://www.netzmafia.de/skripten/inetprog/inetprog1.html</p>
+              </li>
+              <li>
+                <p>https://tools.ietf.org/html/rfc6455</p>
+              </li>
+              <li>
+                <p>https://dzone.com/articles/html-5-server-sent-events</p>
+              </li>
+              <li>
+                <p>https://medium.com/platform-engineer/web-api-design-35df8167460</p>
+              </li>
+              <li>
+                <p>https://codeburst.io/polling-vs-sse-vs-websocket-how-to-choose-the-right-one-1859e4e13bd9</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+    </article>
+  </main>
+
+  <script src="static/js/webslides.js"></script>
+  <script>
+    window.ws = new WebSlides();
+  </script>
+  <script defer src="static/js/svg-icons.js"></script>
+
+</body>
+
+</html>

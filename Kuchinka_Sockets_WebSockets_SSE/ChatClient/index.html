@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ChatClient</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>WebSocket-ChatServer</h1>
+        </div>
+        <div class="row">
+            <input class="col-md-10 form-control" id="username" />
+            <button class="col-md-2 btn btn-primary" id="connect" onclick="connect()">Connect to Chat</button>
+        </div>
+        <div class="row">
+            <input class="col-md-10 form-control" id="input" style="display: none" />
+            <button class="col-md-2 btn btn-primary" id="send" onclick="send()" style="display: none">Send</button>
+        </div>
+        <div class="row" style="padding-top: 20px">
+            <table id="chat" class="table table-sm table-hover"></table>
+        </div>
+    </div>
+
+    <script>
+        var wsocket;
+        function onMessageReceived(event) {
+            console.log(event);
+            var msg = JSON.parse(event.data);
+            var chatRow = document.getElementById('chat').insertRow();
+            chatRow.className = "row";
+            var timeCell = chatRow.insertCell(0);
+            timeCell.innerHTML = msg.time;
+            timeCell.className = "col-md-1";
+            var userNameCell = chatRow.insertCell(1);
+            userNameCell.innerHTML = msg.userName;
+            userNameCell.className = "col-md-1";
+            var messageCell = chatRow.insertCell(2);
+            messageCell.innerHTML = msg.message;
+            messageCell.className = "col-md-10";
+        }
+        function connect() {
+            var username = document.getElementById("username").value;
+            wsocket = new WebSocket("ws://localhost:8085/chatserver/chat/" + username);
+            wsocket.onmessage = onMessageReceived;
+
+            document.getElementById('username').style.display = "none";
+            document.getElementById('connect').style.display = "none";
+            document.getElementById('input').style.display = "block";
+            document.getElementById('send').style.display = "block";
+            alert("Connected!");
+        }
+        function send() {
+            wsocket.send(document.getElementById('input').value);
+        }
+    </script>
+
+</body>
+
+</html>
