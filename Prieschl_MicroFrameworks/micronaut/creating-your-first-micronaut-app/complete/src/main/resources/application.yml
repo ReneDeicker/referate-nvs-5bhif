@@ -1,0 +1,5 @@
+# gradlew run
+
+micronaut:
+  application:
+    name: examples
