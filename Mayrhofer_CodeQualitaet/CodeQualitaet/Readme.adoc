@@ -4,7 +4,7 @@
 `index.html` anschauen, oder das pdf öffnen
 
 == SonarQube
-. Docker-Compose file wie aus der Dokumentation.
+. Docker-Compose file wie aus der Präsentation.
 . `localhost:9000`
 . Einloggen mit `admin:admin`
 . Projekt erstellen
