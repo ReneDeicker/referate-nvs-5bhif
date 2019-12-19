@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400,500,700&display=swap');
+body {
+    background-color: #2B2B2B;
+    transition: 1s all;
+}
+body[class*="title"] {
+    background-color: #e31017;
+}
+
+/*======= SLIDES =======*/
+.slide {
+    color: #a9b7c4;
+    width: 950px;
+    height: 700px;
+    font-family: 'Roboto Mono';
+    padding: 30px;
+    box-sizing: border-box;
+    text-shadow: 0 0 10px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-weight: bolder;
+    font-size: 100px;
+}
+h1::before {
+    content: '#';
+    color: #cc7831;
+    margin-right: 40px;
+}
+ul {
+    text-shadow: 0 0 5px black;
+    font-size: 60px;
+    list-style: none;
+    padding-left: 10px;
+    margin: 0;
+}
+ul > li {
+    margin-top: 20px;
+}
+ul > li::before {
+    margin-right: 50px;
+    content: "*";
+    color: #cc7831;
+}
+code {
+    background-color: #383838 !important;
+    font-size: 25px;
+    text-shadow: 0 0 3px #000000;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 1.5px solid #000a;
+}
+.entity {
+    background-color: #383838;
+    padding: 10px 30px;
+    border-radius: 20px;
+    border: 1px solid #000;
+    margin: 0px 5px;
+    display: inline-block;
+}
+.line {
+    background-color: #a9b7c4;
+    height: 5px;
+    width: 100px;
+    display: inline-block;
+    box-shadow: 0 0 5px black;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+li.substep:before {
+    display: inline-block;
+    content: '[ ]';
+    width: 110px;
+    text-align: center;
+    margin-right: 20px;
+}
+li.substep-visible:before {
+    content: '✔';
+    width: 110px;
+    text-align: center;
+}
+.end {
+    text-align: center;
+    font-size: 130px;
+}
+.end::before {
+    display: none;
+}
+
+/* ============ FLASK ============= */
+#title > * {
+    position: absolute;
+}
+#title > #djangoimg {
+    left: -200px;
+    top: 0px;
+    transform: translateX(-50%) translateY(-50%) rotate(30deg);
+    height: 1000px;
+}
+#title > h1 {
+    font-size: 130px;
+}
+#title > h1::before {
+    content: none;
+}
+#title > h2 {
+    font-size: 80px;
+}
+#title > #djangotxt {
+    top: -50px;
+    left: 220px;
+    transform: translateX(-50%) translateY(-50%);
+}
+#title > #flasktxt {
+    top: 60px;
+    left: 90px;
+    transform: translateX(-50%) translateY(-50%);
+}
+#title > #ktortxt {
+    top: 60px;
+    left: 360px;
+    transform: translateX(-50%) translateY(-50%);
+}

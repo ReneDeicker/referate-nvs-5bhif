@@ -1,0 +1,48 @@
+= Preparations
+:source-highlighter: pygments
+:icons: font
+
+== Conda
+[source, bash]
+----
+conda create -n presenv
+
+conda activate presenv
+
+conda install pip
+----
+
+== Keycloak
+ * [ ] Import Realms
+ * [ ] Regenerate Client secrets
+ * [ ] Update Code for backend and frontend
+ * [ ] Add Users 
+
+== Pycharm
+
+* [ ] Presentation Mode
+* [ ] Distraction Free Mode
+* [ ] Select in Project View Mode
+* [ ] Git File Add ausgeschalten
+* [ ] Conda Env eingestellt
+
+== Console
+
+* [ ] Conda env aktiviert
+* [ ] Zoom in
+* [ ] Httpie installiert
+
+== Firefox 
+* [ ] Tab auf localhost:8000
+* [ ] Rangezoomed
+
+== Quotes
+* I bin glei finito, owa gewaltig - Renate Willmann
+* Herr Kuchinka, Sie san leicht asozial! - Franz Jakob
+* Polymer... Teddybär!! - Maximilian Wahl
+* Da Schaß steht jo meistns eha vorm Rechner! - Gerald Köck
+* Damma a weng schummeln. Des schodt ned. - Thomas Stütz
+* Verschicken heißt in dem Fall afoch nur Schreddern - Jan Neuburger
+* Des is eh ka Torpedo... Des is a Schokobon - Franz Jakob
+* Richtige Antwort, aber falsch! - Franz Jakob
+* Wonn wir donn Übungen mochn wirst du sterben... ALLEINE! - Johannes Tumfart

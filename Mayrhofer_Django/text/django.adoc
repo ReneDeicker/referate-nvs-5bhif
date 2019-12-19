@@ -1,0 +1,345 @@
+= Django "quotemanager"
+:source-highlighter: coderay
+
+Erik Mayrhofer
+
+Quarkus zu Spring = Flask zu Django
+
+NOTE: Homepage: https://www.django-rest-framework.org/[]
+
+WARNING: Trailing slash
+
+== Erklärungen
+. Project vs App (Like a Application Server)
+. View, Serializer, Model
+. HATEOAS
+. WSGI
+
+== Slide Todos
+. Basic Project
+.. Projekt und App erstellen
+.. Model erstellen (Quote)
+.. Admin panel
+.. Serializer erstellen
+.. View erstellen
+.. URLs eintragen und App installen
+.. Testen
+. Modell verbessern
+.. ModellKlasse
+.. Serializer
+.. View
+.. Url
+. Hateoas
+. Keycloak
+
+== Basic Project
+
+=== Setup
+
+[source, bash]
+----
+pip install django
+pip install djangorestframework
+----
+
+=== Create Project
+
+[source, bash]
+----
+django-admin startproject quotemanager
+
+cd quotemanager
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+charm
+
+python manage.py startapp quotes
+----
+
+
+=== Modell erstellen
+
+.quotes/models.py
+[source, python]
+----
+from django.db import models
+
+
+class Quote(models.Model):
+    text = models.CharField(max_length=250)
+    person = models.CharField(max_length=50)
+----
+
+=== Admin Panel herzeigen
+`http://localhost:8000/admin/` im Browser
+
+=== Serializer erstellen
+
+.quotes/serializers.py
+[source, python]
+----
+from rest_framework import serializers
+
+from .models import Quote
+
+
+class QuoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Quote
+        fields = ('id', 'text', 'person')
+----
+
+=== View erstellen
+
+.quotes/views.py
+[source, python]
+----
+from django.shortcuts import render
+from rest_framework import viewsets
+
+from .models import Quote
+from .serializers import QuoteSerializer
+
+
+class QuoteView(viewsets.ModelViewSet):
+    queryset = Quote.objects.all()
+    serializer_class = QuoteSerializer
+----
+
+=== URLs und App eintragen
+
+.quotemanager/urls.py
+[source, python]
+----
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('quotes.urls'))
+]
+----
+
+.quotes/urls.py
+[source, python]
+----
+from django.urls import path, include
+from rest_framework import routers
+
+from .views import QuoteView
+
+router = routers.DefaultRouter()
+router.register('quotes', QuoteView)
+
+urlpatterns = [
+    path('', include(router.urls))
+]
+
+----
+
+.migrations
+[source, bash]
+----
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py runserver
+----
+
+=== Testen
+
+. `localhost:8000/quotes` im Browser
+. Commandline:
+
+[source, bash]
+----
+http -v POST localhost:8000/quotes/ text="Polymer Teddibär" person="Max Wahl"
+----
+
+[start=3]
+. Bei der Console auch Fehlenden Parameter prüfen (validation), und PUT DELETE, zu langer Name (max 50 Zeichen)
+. Admin Gui im Browser `localhost:8000/admin` => Nichts wird angezeigt
+
+=== Admin
+
+.quotes/admin.py
+[source, python]
+----
+from django.contrib import admin
+
+from quotes.models import Quote
+
+admin.site.register(Quote)
+----
+
+3. Admin Gui im Browser `localhost:8000/admin` => Anzeige Hässlich
+
+.quotes/models.py
+[source, python]
+----
+
+class Quote(models.Model):
+    ...
+    def __str__(self):
+        return f"{self.text} - {self.person}"
+----
+
+== Modell Verbessern
+
+=== Klassen anpassen
+
+Wir fügen eine Person hinzu
+
+.quotes/models.py
+[source, python]
+----
+class Person(models.Model): <1>
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
+class Quote(models.Model):
+    text = models.CharField(max_length=250)
+    person = models.ForeignKey(Person, on_delete=models.CASCADE) <2>
+
+    def __str__(self):
+        return f"{self.text}" <3>
+----
+<1> Person erstellen
+<2> Foreign key Setzen
+<3> Str anpassen
+
+=== Migrieren
+[source, bash]
+----
+python manage.py makemigrations
+----
+
+SQLite-DB hat Daten drinnen: Einfach das File löschen
+
+[source, bash]
+----
+python manage.py migrate
+----
+
+
+=== Serializer
+.quotes/serializers.py
+[source, python]
+----
+class PersonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Person
+        fields = ('id', 'name')
+----
+
+=== View
+.quotes/views.py
+[source, python]
+----
+class PersonView(viewsets.ModelViewSet):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
+----
+
+=== Urls
+.qutoes/urls.py
+[source, python]
+----
+router.register('persons', PersonView)
+----
+
+=== Testen
+[source, bash]
+----
+python manage.py runserver
+----
+
+. Web Interface Browsen
+
+== Hateoas
+
+.quotes/serializers.py
+[source, python]
+----
+class ...Serializer(serializers.HyperlinkedModelSerializer):
+    fields = (..., 'url', ....)
+----
+
+== Keycloak
+
+=== Install 
+[source, bash]
+----
+pip install django-oauth-toolkit
+----
+
+.quotemanager/settings.py
+[source, python]
+----
+INSTALLED_APPS = [
+    ...
+    'oauth2_provider',
+    ...
+]
+
+...
+
+OAUTH2_PROVIDER = {
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
+    'RESOURCE_SERVER_INTROSPECTION_URL':
+        'http://localhost:8080/auth/realms/master/protocol/openid-connect/token/introspect',
+    'RESOURCE_SERVER_INTROSPECTION_CREDENTIALS': ('django-backend', '7031ca56-87dc-4f2b-aa93-52fb79eb5a86')
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ]
+}
+----
+
+=== Protecting the API
+
+[source, python]
+----
+from rest_framework import viewsets, permissions
+----
+
+[source, python]
+----
+class QuoteView(viewsets.ModelViewSet):
+    ...
+    permission_classes = [permissions.IsAuthenticated]
+----
+
+=== Testing out the Endpoitn
+
+.Obtain Bob's Token
+[source, bash]
+----
+http -p b --form \
+  -a frontend:460d1a14-b774-482e-b03e-a3830874d9c1 \
+  POST localhost:8080/auth/realms/master/protocol/openid-connect/token \
+  username=bob password=bob grant_type=password | jq -r ".access_token"
+
+TOKEN=$(http -p b --form \
+  -a frontend:460d1a14-b774-482e-b03e-a3830874d9c1 \
+  POST localhost:8080/auth/realms/master/protocol/openid-connect/token \
+  username=bob password=bob grant_type=password | jq -r ".access_token")
+----
+
+.Query Protected URL
+[source, bash]
+----
+http -v localhost:8000/quotes/ Authorization:"Bearer $TOKEN"
+----

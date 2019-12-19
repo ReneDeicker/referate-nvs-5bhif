@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1280" />
+    <title>Django</title>
+    <meta name="description" content="Django" />
+    <meta name="author" content="Erik Mayrhofer" />
+    <link href="./styles/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="impressjs/extras/highlight/styles/darkula.css">
+    <link rel="stylesheet" href="impressjs/extras/mermaid/mermaid.forest.css">
+</head>
+<body class="impress-not-supported">
+<div id="impress">
+    <div id="viewport" data-backdrop=true></div>
+    <div class="background viewport-sized" data-viewport-attach=true></div>
+<!-- =========================================== -->
+<!-- =========================================== -->
+
+
+<!-- <div id="title" class="step" data-z="50000" data-x="13500" data-y="-6500"> -->
+<div id="title" class="step" data-z="3000" data-x="0" data-y="900" data-rotate-z="-30" data-rotate-x="-90">
+    <img id="djangoimg" src="img/DjangoTitle.png"/>
+    <h1 id="djangotxt">Django</h1>
+    <h2 id="flasktxt">Flask</h2>
+    <h2 id="ktortxt">Ktor</h2>
+</div>
+
+<div id="keyframe" class="step" data-z="2750" data-x="-190" data-y="-0200" 
+data-rotate-z="0" data-rotate-x="-90" data-autoplay="0.01">
+</div>
+
+<div class="step slide" data-z="0" data-y="0" data-x="0">
+    <h1>Django</h1>
+    <ul>
+        <li>Python</li>
+        <li>0.13% Market Share</li>
+        <li>All-In-One</li>
+        <li>Django Templates</li>
+    </ul>
+</div>
+
+<div class="step slide" data-z="0" data-y="200" data-x="1000">
+    <h1>Flask</h1>
+    <ul>
+        <li>Lightweight</li>
+        <li>All-In-One</li>
+        <li>Python</li>
+        <li>Jinja</li>
+    </ul>
+</div>
+
+<div class="step slide" data-z="0" data-y="-100" data-x="2000">
+    <h1>Jinja</h1>
+    <pre><code class="jinja">
+{% extends "layout.html" %}
+{% block body %}
+&lt;ul&gt;
+    {% for user in users %}
+    &lt;li&gt;
+    &lt;a href="{{ user.url }}"&gt{{ user.username }}&lt;/a&gt
+    &lt;/li&gt
+    {% endfor %}
+&lt;/ul&gt
+{% endblock %}
+    </code></pre>
+</div>
+
+<div class="step slide" data-z="0" data-y="200" data-rel-x="1000">
+    <h1>Ktor</h1>
+    <ul>
+        <li>Kotlin</li>
+        <li>Quick-and-dirty</li>
+        <li>Kotlin DSL</li>
+    </ul>
+</div>
+
+<div class="step slide" data-z="0" data-rel-y="1000" data-rel-x="0" data-rotate="180">
+    <h1>Zitate</h1>
+    <ul>
+        <li><span class="entity">Quote</span>n<span class="line"></span>1<span class="entity">Person</span></li>
+        <li><span class="entity">Quote</span>: String text</li>
+        <li><span class="entity">Person</span>: String name</li>
+    </ul>
+</div>
+
+<div class="step slide" data-z="0" data-rel-y="1000" data-rel-x="0" data-rotate="180">
+    <h1>Flask</h1>
+    <ul>
+        <li class="substep">Hello World</li>
+        <li class="substep">Get Quotes</li>
+    </ul>
+</div>
+<div class="step slide" data-z="0" data-rel-y="1000" data-rel-x="0" data-rotate="180">
+    <h1>Ktor</h1>
+    <ul>
+        <li class="substep">Hello World</li>
+        <li class="substep">Get Quotes</li>
+        <li class="substep">Post Quotes</li>
+        <li class="substep">DSL</li>
+    </ul>
+</div>
+<div class="step slide" data-z="0" data-rel-y="1000" data-rel-x="0" data-rotate="180">
+    <h1>Django</h1>
+    <ul>
+        <li class="substep">Quote Endpoint</li>
+        <li class="substep">Admin UI</li>
+        <li class="substep">Person Endpoint</li>
+        <li class="substep">HATEOAS</li>
+        <li class="substep">Keycloak</li>
+    </ul>
+</div>
+<div id="end" class="step slide end" data-z="0" data-rel-y="0" data-rel-x="-1000" data-rotate="90">
+    <h1 class="end">Thank You!</h1>
+</div>
+
+<!-- =========================================== -->
+<!-- =========================================== -->
+</div>
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified
+        version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+<script src="./js/showviewport.js"></script>
+<script src="impressjs/js/impress.js"></script>
+<script type="text/javascript" src="impressjs/extras/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="impressjs/extras/mermaid/mermaid.min.js"></script>
+<script>impress().init();</script>
+</body></html>
