@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <!-- CSS WebSlides -->
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/webslides.css">
+
+    <!-- Optional - CSS SVG Icons (Font Awesome) -->
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/svg-icons.css">
+    
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/obycula.css">
+
+    <!-- Hightlight -->
+    <script src="static/js/highlight.min.js"></script>
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/highlight-darcula.css">
+
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#333333">
+  </head>
+  <body>
+    <main role="main">
+      <article id="webslides" class="horizontal">
+
+        <section class="darcula">
+         <span class="background" style="background-image:url('static/images/karsten_wuerth_field.jpg')"></span>
+          <div class="wrap aligncenter">
+            <h1><strong>Codequalität</strong></h1>
+          </div>
+        </section>
+
+        <section class="darcula">
+          <div class="wrap size-75 aligncenter">
+            <blockquote class="text-quote">
+              <p>For every 1,000 lines of code, there are between 15 and 50 defects.</p>
+              <p><cite>Steve McConnell</cite></p>
+            </blockquote>
+          </div>
+        </section>
+
+        <section class="darcula">
+          <div class="wrap size-75 aligncenter fadeInUp">
+            <h2><strong>Was ist Codequalität?</strong></h2>
+            <ul class="flexblock cardlist">
+              <li>
+                Komplettheit
+              </li>
+              <li>
+                Verlässlichkeit
+              </li>
+              <li>
+                Wartbarkeit
+              </li>
+              <li>
+                Testbarkeit
+              </li>
+              <li>
+                Portabilität
+              </li>
+              <li>
+                Wiederverwendbarkeit
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="darcula slide-top">
+          <div class="wrap">
+          <div class="content-center fadeIn ">
+            <h2>Wartbarkeit</h2>
+          </div>
+          <div class="fadeIn spacer-top grid size-75">
+              <pre class="big"><code class="python">
+for j in range(len(numbers)):
+  for k in range(len(numbers) - 1):
+    if numbers[k] > numbers[k + 1]:
+      swap = numbers[k]
+      numbers[k] = numbers[k + 1]
+      numbers[k + 1] = swap
+              </code></pre>
+              <pre class="big"><code class="python">
+for j in range(len(numbers)):
+  for k in range(len(numbers) - 1):
+    if numbers[k] > numbers[k + 1]:
+      numbers[k] ^= numbers[k + 1]
+      numbers[k + 1] ^= numbers[k]
+      numbers[k] ^= numbers[k + 1]
+              </code></pre>
+            </div>
+          </div>
+        </section>
+        
+        <section class="darcula ">
+          <span class="background" style="background-image:url('static/images/dan-gold-dried-ground.jpg')"></span>
+          <div class="wrap content-center">
+            <h2 class="extralarge">DRY</h2>
+          </div>
+        </section>
+
+        <section class="darcula ">
+          <div class="wrap">
+            <ul class="biglist">
+              <li>
+                KISS
+              </li>
+              <li>
+                SOLID
+              </li>
+              <li>
+                YAGNI
+              </li>
+              <li>
+                SOLID
+              </li>
+              <li>
+                90-90
+              </li>
+              <li>
+                DTSTTCPW
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="darcula ">
+          <div class="wrap content-center">
+            <h2 class>Style Guides</h2>
+          </div>
+        </section>
+
+        <section class="darcula slide-top">
+          <div class="wrap">
+            <pre>
+              <code class="javascript">
+var result = new Object()
+Logger = {
+    log: (message) => {
+        console.log("[LOG] "+message);
+    },
+    level: "INFO",
+    set_level: function (level) {
+        this.level =level;
+    }
+}
+
+const items = [1,"hello",2,"foo", "baa", 'I am a string'];
+
+Logger.log("LogLevel " + Logger['level']);
+
+for(let i of items)
+{
+    if(typeof i == 'string'){
+        result += i;
+    }else
+        Logger.log(`Discarded "${i}"`)
+    
+}
+Logger.set_level('DEBUG')
+Logger.log("LogLevel " + Logger.level)
+console.log(result)
+              </code>
+            </pre>
+          </div>
+        </section>
+
+        <section class="darcula">
+          <div class="wrap">
+            <h2 class="slide-top">ESLint</h2>
+            <div class="alignright size-75 spacer-top">
+            <pre class="command">
+              <code class="bash prompt">eslint myfile.js</code>
+              <code class="bash error">✖ 53 problems (52 errors, 1 warning)
+  49 errors and 0 warnings potentially fixable with the `--fix` option.</code>
+              <code class="bash prompt">eslint myfile.js --fix</code>
+            </pre>
+            </div>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section class="darcula slide-top">
+          <div class="wrap">
+            <pre>
+              <code class="javascript">
+let result = {};
+const Logger = {
+  log(message) {
+    console.log(`[LOG] ${message}`);
+  },
+  setLevel(level) {
+    this.level = level;
+  },
+  level: 'INFO',
+};
+
+const items = [1, 'hello', 2, 'foo', 'baa', 'I am a string'];
+
+Logger.log(`LogLevel ${Logger.level}`);
+
+items.forEach((i) => {
+  if (typeof i === 'string') {
+    result += i;
+  } else {
+    Logger.log(`Discarded "${i}"`);
+  }
+});
+Logger.setLevel('DEBUG');
+Logger.log(`LogLevel ${Logger.level}`);
+Logger.log(result);
+
+              </code>
+            </pre>
+          </div>
+        </section>
+
+        <section class="darcula ">
+          <div class="wrap">
+            <h2 class="alignleft">  
+              CodeReview
+            </h2>
+            <ul class="biglist alignright">
+              <li>Zeitbegrenzung</li>
+              <li>Zeilenbegrenzung</li>
+              <li>GitHub</li>
+            </ul>
+
+          </div>
+        </section>
+
+        <section class="darcula">
+          <figure class="browser">
+            <img alt="GitHub Reviews" src="static/images/CreatePullRequest.png">
+          </figure>
+        </section>
+        
+        <section class="darcula">
+          <figure class="browser">
+            <img alt="GitHub Reviews" src="static/images/ReviewPullRequest.png">
+          </figure>
+        </section>
+        <section class="darcula ">
+          <div class="wrap">
+            <h2 class="alignleft">
+              Documentation
+            </h2>
+            <ul class="biglist alignright">
+              <li>ReadTheDocs</li>
+              <li>Slate</li>
+              <li>Sphinx</li>
+              <li>JavaDoc</li>
+            </ul>
+
+          </div>
+        </section>
+
+        <section class="darcula"><h2 class="slide-top">ReadTheDocs</h2>
+          <figure class="browser">
+            <img alt="ReadTheDocs" src="static/images/readthedocs.png">
+          </figure>
+        </section>
+
+        <section class="darcula"><h2 class="slide-top">Slate</h2>
+          <figure class="browser">
+            <img alt="Slate" src="static/images/slate.png">
+          </figure>
+        </section>
+
+        <section class="darcula">
+          <h2 class="slide-top">Sphinx</h2>
+          <figure class="browser">
+            <img alt="Sphinx" src="static/images/jinja.png">
+          </figure>
+        </section>
+
+        <section class="darcula">
+          <h2 class="slide-top">JavaDoc</h2>
+          <figure class="browser">
+            <img alt="Sphinx" src="static/images/javadoc.png">
+          </figure>
+        </section>
+
+
+        <section class="darcula">
+          <h2 class="slide-top">JavaDoc</h2>
+          <div class="wrap">
+            <pre class="big">
+              <code class="java">
+/**
+* This method is used to add two integers. This is
+* a the simplest form of a class method, just to
+* show the usage of various javadoc Tags.
+* @param numA This is the first paramter to addNum method
+* @param numB  This is the second parameter to addNum method
+* @return int This returns sum of numA and numB.
+*/
+public int addNum(int numA, int numB) {
+  return numA + numB;
+}
+              </code>
+            </pre>
+          </div>
+        </section>
+
+        <section class="darcula ">
+          <div class="wrap">
+            <h2 class="alignleft">
+              Testen
+            </h2>
+            <ul class="biglist alignright">
+              <li>Google Test</li>
+              <li>JUnit</li>
+              <li>Mocha</li>
+              <li>Selenium</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="darcula ">
+          <div class="wrap">
+            <h2 class="alignleft">
+              CCI
+            </h2>
+            <ul class="biglist alignright">
+              <li>CodeClimate <span class="commercial">$</span></li>
+              <li>Codacy <span class="commercial">$</span></li>
+              <li>SonarQube</li>
+            </ul>
+          </div>
+        </section>
+                
+        <section class="darcula">
+          <h2 class="slide-top">CodeClimate</h2>
+          <figure class="browser">
+            <img alt="Sphinx" src="static/images/codeclimate.png">
+          </figure>
+        </section>
+        <section class="darcula">
+          <h2 class="slide-top">CodeClimate</h2>
+          <figure class="browser">
+            <img alt="Sphinx" src="static/images/CodeClimate.png">
+          </figure>
+        </section>
+
+
+        <section class="darcula ">
+          <div class="wrap">
+            <h2 class="alignleft">
+              Codacy
+            </h2>
+            <ul class="biglist alignright">
+              <li>Langsam</li>
+              <li>Umfassend</li>
+              <li>Security</li>
+            </ul>
+          </div>
+        </section>
+                
+        <section class="darcula">
+          <h2 class="slide-top">Codacy</h2>
+          <figure class="browser">
+            <img alt="Sphinx" src="static/images/Codacy.png">
+          </figure>
+        </section>
+                
+        <section class="darcula">
+          <h2 class="slide-top">Codacy</h2>
+          <figure class="browser">
+            <img alt="Sphinx" src="static/images/Codacy2.png">
+          </figure>
+        </section>
+                
+        <section class="darcula">
+          <h2 class="slide-top">Codacy</h2>
+          <figure class="browser">
+            <img alt="Sphinx" src="static/images/Codacy3.png">
+          </figure>
+        </section>
+                
+        <section class="darcula">
+          <h2 class="slide-top">Codacy</h2>
+          <figure class="browser">
+            <img alt="Sphinx" src="static/images/Codacy4.png">
+          </figure>
+        </section>
+
+        <section class="darcula">
+          <h2 class="slide-top">Codacy</h2>
+          <figure class="browser">
+            <img alt="Sphinx" src="static/images/Codacy4.png">
+          </figure>
+        </section>
+        
+
+
+        <section class="darcula">
+          <h2 class="slide-top">SonarQube</h2>
+          <div class="wrap">
+            <pre class="big">
+              <code class="docker-compose">
+version: "3"
+
+services:
+  sonarqube:
+    image: sonarqube
+    ports:
+      - 9000:9000
+
+              </code>
+            </pre>
+          </div>
+        </section>
+
+      </article>
+      <!-- end article -->
+    </main>
+    <!-- end main -->
+
+   <!-- A global footer
+
+     <footer role="contentinfo">
+      <div class="wrap">
+        <p>An <a href="https://github.com/webslides/webslides">open source solution</a>, by <a href="https://twitter.com/webslides">@webslides</a>.</p>
+      </div>
+    </footer>  -->
+
+    <!-- Required -->
+    <script src="static/js/webslides.js"></script>
+    <script>
+      window.ws = new WebSlides();
+    </script>
+
+    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+    <script defer src="static/js/svg-icons.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+  </body>
+</html>
