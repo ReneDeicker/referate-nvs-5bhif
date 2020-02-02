@@ -1,0 +1,46 @@
+# Database-Files
+/db/
+
+src/main/java/at/htl/githubwatcher/boundary/IGitHubRestClient.java
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# IntelliJ
+.idea/dataSources/
+.idea/httpRequests/
+.idea/inspectionProfiles/
+.idea/libraries/
+.idea/workspace.xml
+*.ipr
+*.iml
+*.iws
+rest-client.private.env.json
+
+
+# NetBeans
+nb-configuration.xml
+
+# Visual Studio Code
+.vscode
+
+# OSX
+.DS_Store
+
+# Vim
+*.swp
+*.swo
+
+# patch
+*.orig
+*.rej
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties

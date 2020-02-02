@@ -1,0 +1,37 @@
+= JavaFX - von Philipp Auinger
+:toc:
+:toc-title: Inhaltsverzeichnis
+:toclevels: 3
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== 1. Struktur des Referats 
+
+=== 1.1 JavaFX - Allgemein
+
+=== 1.2 Rich Client oder Webapp
+
+=== 1.3 JavaFX - Architektur
+
+=== 1.4 UI - Controls
+
+=== 1.5 Praxis Teil
+
+=== 1.6 JavaFX - Architektur
+
+=== 1.7 MVC
+
+=== 1.8 Stackoverflow Statistik
+
+=== 1.9 Kritik und Jobangebote
+
+== 2. PRAXIS
+
+=== 2.1 ERD
+image::images/ERD.PNG[]
