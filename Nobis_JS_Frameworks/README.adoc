@@ -1,9 +1,9 @@
 = JavaScript + Frameworks
-
+////
 ++++
 <link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
 ++++
-
+////
 :icons: font
 
 == Was ist JavaScript?
@@ -41,7 +41,7 @@ Befehle in der Browser Konsole:
 . Circle.length
 . Circle.constructor 
 
-TIP: circle (circle Objekt) --> $$__$$proto$$__$$ ist “Object”)
+TIP: circle (circle Objekt) -> $$__$$proto$$__$$ ist “Object”
 
 == Clonen eines Objekts
 
