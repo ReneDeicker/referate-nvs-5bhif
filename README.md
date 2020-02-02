@@ -8,3 +8,4 @@
 ### 6. [Mobile App Development](Lengauer_MobileAppDevelopment) von Mario Lengauer (12. November 2019)
 ### 7. [Microframeworks](Prieschl_MicroFrameworks) von Fabian Prieschl (3. Dezember 2019)
 ### 8. [Django](Mayrhofer_Django) von Erik Mayrhofer (3. Dezember 2019)
+### 9. [JavaFX](Auinger_JavaFX) von Philipp Auinger (02. Februar 2020)
