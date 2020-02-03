@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="300.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.ProductController">
+    <Pane layoutX="-225.0" layoutY="173.0" prefHeight="273.0" prefWidth="357.0" rotate="41.6" style="-fx-background-color: #FA2C56; -fx-background-radius: 70;" />
+    <Pane layoutY="40.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 5;">
+        <children>
+            <Label fx:id="headerLabel" layoutX="25.0" layoutY="17.0" text="CRUD Product" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+    <Button layoutX="255.0" layoutY="8.0" mnemonicParsing="false" onAction="#onCloseBtn" styleClass="button1" stylesheets="@css/main.css" text="Close" textFill="WHITE" />
+   <VBox layoutX="30.0" layoutY="114.0" prefHeight="372.0" prefWidth="240.0">
+      <children>
+         <Label text="Id:" textFill="WHITE">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <TextField fx:id="id" prefHeight="25.0" prefWidth="158.0" promptText="Id" />
+         <Separator prefWidth="200.0">
+            <VBox.margin>
+               <Insets bottom="10.0" top="25.0" />
+            </VBox.margin>
+         </Separator>
+         <Label layoutX="10.0" layoutY="10.0" text="Best before date:" textFill="WHITE">
+            <font>
+               <Font size="15.0" />
+            </font>
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+         </Label>
+         <DatePicker fx:id="best_before_date" prefHeight="25.0" prefWidth="285.0" promptText="Best before date" />
+         <Label layoutX="10.0" layoutY="58.0" text="Brand:" textFill="WHITE">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <TextField fx:id="brand" layoutX="10.0" layoutY="80.0" prefHeight="26.0" prefWidth="186.0" promptText="Brand" />
+         <Label layoutX="10.0" layoutY="106.0" text="Name:" textFill="WHITE">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <TextField fx:id="name" layoutX="10.0" layoutY="128.0" prefHeight="26.0" prefWidth="186.0" promptText="Name" />
+         <Label layoutX="10.0" layoutY="154.0" text="Price:" textFill="WHITE">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <TextField fx:id="price" layoutX="10.0" layoutY="176.0" prefHeight="26.0" prefWidth="186.0" promptText="Price" />
+         <Label layoutX="10.0" layoutY="202.0" text="Quantity:" textFill="WHITE">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <TextField fx:id="quantity" layoutX="10.0" layoutY="224.0" prefHeight="26.0" prefWidth="186.0" promptText="Quantity" />
+         <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <Button mnemonicParsing="false" onAction="#onCreateBtn" styleClass="crudButton" stylesheets="@css/main.css" text="CREATE" textFill="WHITE">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets right="12.0" top="15.0" />
+                  </HBox.margin>
+               </Button>
+               <Button mnemonicParsing="false" onAction="#onUpdateBtn" styleClass="crudButton" stylesheets="@css/main.css" text="UPDATE" textFill="WHITE">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets right="12.0" top="15.0" />
+                  </HBox.margin>
+               </Button>
+               <Button mnemonicParsing="false" onAction="#onDeleteBtn" styleClass="crudButton" stylesheets="@css/main.css" text="DELETE" textFill="WHITE">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets right="12.0" top="15.0" />
+                  </HBox.margin>
+               </Button>
+            </children>
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+         </HBox>
+      </children>
+   </VBox>
+</AnchorPane>

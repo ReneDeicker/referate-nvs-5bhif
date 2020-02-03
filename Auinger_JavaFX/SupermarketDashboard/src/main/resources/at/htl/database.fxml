@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.DatabaseViewController">
+        <Pane layoutX="-240.0" layoutY="213.0" prefHeight="330.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: #FA2C56; -fx-background-radius: 70;" />
+        <Pane layoutY="40.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 5;">
+            <children>
+                <Label fx:id="headerLabel" layoutX="25.0" layoutY="17.0" text="Cashier Database View" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+   <TableView fx:id="databaseTableView" layoutX="273.0" layoutY="40.0" prefHeight="550.0" prefWidth="616.0" stylesheets="@css/tableView.css" />
+   <Button layoutX="855.0" layoutY="7.0" mnemonicParsing="false" onAction="#onCloseBtn" styleClass="button1" stylesheets="@css/main.css" text="Close" textFill="WHITE" />
+</AnchorPane>

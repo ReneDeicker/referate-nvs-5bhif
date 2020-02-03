@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.MainController">
+   <children>
+   <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #393351;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0">
+            <children>
+               <Button fx:id="btn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#chooseMeixner" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@css/main.css" text="Billa Meixnerkreuzung" textFill="WHITE">
+                  <graphic>
+                     <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@resources/Billa.jpg" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+                  <padding>
+                     <Insets left="40.0" />
+                  </padding>
+               </Button>
+               <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#chooseHbf" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@css/main.css" text="SPAR Hauptbahnhof" textFill="WHITE">
+                  <graphic>
+                     <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@resources/spar.jpg" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  <padding>
+                     <Insets left="40.0" />
+                  </padding>
+               </Button>
+               <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#chooseBuffet" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@css/main.css" text="HTL Leonding Buffet" textFill="WHITE">
+                  <graphic>
+                     <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@resources/Capture.PNG" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  <padding>
+                     <Insets left="40.0" />
+                  </padding>
+               </Button>
+               <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#chooseEuro" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@css/main.css" text="EUROSPAR Leonding" textFill="WHITE">
+                  <graphic>
+                     <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@resources/eurospar.jpg" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  <padding>
+                     <Insets left="40.0" />
+                  </padding>
+               </Button>
+                  <Button mnemonicParsing="false" onAction="#onCrudButton" styleClass="button5" stylesheets="@css/main.css" text="PRODUCT CRUD" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="60.0" top="240.0" />
+                     </VBox.margin>
+                  </Button>
+            </children>
+         </VBox>
+         <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 5;">
+            <children>
+               <Label layoutX="25.0" layoutY="17.0" text="Supermarket - Dashboard" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+               </Label>
+            </children>
+         </Pane>
+      </children></AnchorPane>
+   <Pane layoutX="262.0" prefHeight="649.0" prefWidth="631.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: #FA2C56; -fx-background-radius: 70;" />
+         <Pane layoutX="76.0" layoutY="106.0">
+            <children>
+               <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                  <stroke>
+                     <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                           <Stop color="BLACK" />
+                           <Stop color="WHITE" offset="1.0" />
+                        </stops>
+                     </LinearGradient>
+                  </stroke>
+                  <fill>
+                     <LinearGradient endX="1.0" endY="1.0" startY="0.4952380952380952">
+                        <stops>
+                           <Stop color="#03b5fc" />
+                           <Stop color="WHITE" offset="1.0" />
+                        </stops>
+                     </LinearGradient>
+                  </fill>
+               </Circle>
+               <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@resources/icons8-person-50.png" />
+                  </image>
+               </ImageView>
+               <Label alignment="CENTER" layoutX="-6.0" layoutY="146.0" prefHeight="17.0" prefWidth="174.0" text="Cashiers" textFill="WHITE">
+                  <font>
+                     <Font name="Arial Bold" size="13.0" />
+                  </font></Label>
+               <Button id="cashierBtn" mnemonicParsing="false" onAction="#onCashierBtn" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
+            </children>
+         </Pane>
+         <Pane layoutX="316.0" layoutY="106.0" prefHeight="202.0" prefWidth="179.0">
+            <children>
+               <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                  <stroke>
+                     <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                           <Stop color="BLACK" />
+                           <Stop color="WHITE" offset="1.0" />
+                        </stops>
+                     </LinearGradient>
+                  </stroke>
+                  <fill>
+                     <LinearGradient endX="1.0" endY="1.0" startY="0.4952380952380952">
+                        <stops>
+                           <Stop color="#68479f" />
+                           <Stop color="WHITE" offset="1.0" />
+                        </stops>
+                     </LinearGradient>
+                  </fill>
+               </Circle>
+               <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@resources/icons8-storage-50.png" />
+                  </image>
+               </ImageView>
+               <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="Store" textFill="WHITE">
+                  <font>
+                     <Font name="Arial Bold" size="13.0" />
+                  </font></Label>
+               <Button id="storageBtn" mnemonicParsing="false" onAction="#onStoreBtn" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
+            </children>
+         </Pane>
+         <Pane layoutX="71.0" layoutY="354.0" prefHeight="202.0" prefWidth="179.0">
+            <children>
+               <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                  <stroke>
+                     <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                           <Stop color="BLACK" />
+                           <Stop color="WHITE" offset="1.0" />
+                        </stops>
+                     </LinearGradient>
+                  </stroke>
+                  <fill>
+                     <LinearGradient endX="1.0" endY="1.0" startY="0.4952380952380952">
+                        <stops>
+                           <Stop color="#ff52e2" />
+                           <Stop color="WHITE" offset="1.0" />
+                        </stops>
+                     </LinearGradient>
+                  </fill>
+               </Circle>
+               <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@resources/icons8-customer-50.png" />
+                  </image>
+               </ImageView>
+               <Label alignment="CENTER" layoutX="3.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="Customer" textFill="WHITE">
+                  <font>
+                     <Font name="Arial Bold" size="13.0" />
+                  </font></Label>
+               <Button id="customerBtn" mnemonicParsing="false" onAction="#onCustomerBtn" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
+            </children>
+         </Pane>
+         <Pane layoutX="316.0" layoutY="354.0" prefHeight="202.0" prefWidth="179.0">
+            <children>
+               <Circle layoutX="84.0" layoutY="87.0" radius="50.0" stroke="#ff924f" strokeType="INSIDE">
+                  <fill>
+                     <LinearGradient endX="1.0" endY="1.0" startY="0.4952380952380952">
+                        <stops>
+                           <Stop color="#ff934f" />
+                           <Stop color="WHITE" offset="0.9961685823754789" />
+                           <Stop color="WHITE" offset="1.0" />
+                        </stops>
+                     </LinearGradient>
+                  </fill>
+               </Circle>
+               <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@resources/icons8_Bill_50px_2.png" />
+                  </image>
+               </ImageView>
+               <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="Activities" textFill="WHITE">
+                  <font>
+                     <Font name="Arial Bold" size="13.0" />
+                  </font></Label>
+               <Button id="activitiesBtn" mnemonicParsing="false" onAction="#onActivityBtn" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
+            </children>
+         </Pane>
+         <Pane layoutX="559.0" layoutY="354.0" prefHeight="202.0" prefWidth="179.0">
+            <children>
+               <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                  <fill>
+                     <LinearGradient endX="1.0" endY="1.0" startY="0.4952380952380952">
+                        <stops>
+                           <Stop color="#34e063" />
+                           <Stop color="WHITE" offset="0.9961685823754789" />
+                           <Stop color="WHITE" offset="1.0" />
+                        </stops>
+                     </LinearGradient>
+                  </fill>
+               </Circle>
+               <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@resources/icons8_Broccoli_64px_2.png" />
+                  </image>
+               </ImageView>
+               <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="Products" textFill="WHITE">
+                  <font>
+                     <Font name="Arial Bold" size="13.0" />
+                  </font></Label>
+               <Button id="productsBtn" mnemonicParsing="false" onAction="#onProductBtn" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
+            </children>
+         </Pane>
+         <Pane layoutX="559.0" layoutY="106.0" prefHeight="190.0" prefWidth="174.0">
+            <children>
+               <Circle layoutX="84.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
+                  <fill>
+                     <LinearGradient endX="1.0" endY="1.0" startY="0.4952380952380952">
+                        <stops>
+                           <Stop color="#4f79ff" />
+                           <Stop color="WHITE" offset="0.9961685823754789" />
+                           <Stop color="#4f79ff" offset="1.0" />
+                        </stops>
+                     </LinearGradient>
+                  </fill>
+               </Circle>
+               <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="66.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@resources/icons8_Play_Button_50px.png" />
+                  </image>
+               </ImageView>
+               <Label alignment="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="168.0" text="Coming soon..." textFill="WHITE">
+                  <font>
+                     <Font name="Arial Bold" size="13.0" />
+                  </font></Label>
+               <Button mnemonicParsing="false" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
+            </children>
+         </Pane>
+            <Button layoutX="780.0" layoutY="15.0" mnemonicParsing="false" onAction="#onCloseBtn" styleClass="button1" stylesheets="@css/main.css" text="Close" textFill="WHITE" />
+            <Label fx:id="selectedStore" layoutX="462.0" layoutY="27.0" style="-fx-font-weight: bold;" text="BILLA Meixnerkreuzung" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+      </children>
+   </Pane>
+</children>
+</AnchorPane>
