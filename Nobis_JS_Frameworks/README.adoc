@@ -5,6 +5,7 @@
 ++++
 ////
 :icons: font
+:toc:
 
 == Was ist JavaScript?
 *Skriptsprache*, um _dynamische_ HTML-Seiten per Webbrowser anzuzeigen. 
