@@ -14,7 +14,7 @@
       <children>
          <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0">
             <children>
-               <Button fx:id="btn1" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#chooseMeixner" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@css/main.css" text="Billa Meixnerkreuzung" textFill="WHITE">
+               <Button fx:id="storeBtnMeixner" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@css/main.css" text="Billa Meixnerkreuzung" textFill="WHITE">
                   <graphic>
                      <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -29,7 +29,7 @@
                      <Insets left="40.0" />
                   </padding>
                </Button>
-               <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#chooseHbf" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@css/main.css" text="SPAR Hauptbahnhof" textFill="WHITE">
+               <Button fx:id="storeBtnHbf" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@css/main.css" text="SPAR Hauptbahnhof" textFill="WHITE">
                   <graphic>
                      <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -41,7 +41,7 @@
                      <Insets left="40.0" />
                   </padding>
                </Button>
-               <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#chooseBuffet" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@css/main.css" text="HTL Leonding Buffet" textFill="WHITE">
+               <Button fx:id="storeBtnBuffet" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@css/main.css" text="HTL Leonding Buffet" textFill="WHITE">
                   <graphic>
                      <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -53,7 +53,7 @@
                      <Insets left="40.0" />
                   </padding>
                </Button>
-               <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#chooseEuro" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@css/main.css" text="EUROSPAR Leonding" textFill="WHITE">
+               <Button fx:id="storeBtnEuro" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@css/main.css" text="EUROSPAR Leonding" textFill="WHITE">
                   <graphic>
                      <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -65,7 +65,7 @@
                      <Insets left="40.0" />
                   </padding>
                </Button>
-                  <Button mnemonicParsing="false" onAction="#onCrudButton" styleClass="button5" stylesheets="@css/main.css" text="PRODUCT CRUD" textFill="WHITE">
+                  <Button fx:id="productCrudBtn" mnemonicParsing="false" styleClass="button5" stylesheets="@css/main.css" text="PRODUCT CRUD" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -117,7 +117,7 @@
                   <font>
                      <Font name="Arial Bold" size="13.0" />
                   </font></Label>
-               <Button id="cashierBtn" mnemonicParsing="false" onAction="#onCashierBtn" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
+               <Button fx:id="cashiersBtn" mnemonicParsing="false" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
             </children>
          </Pane>
          <Pane layoutX="316.0" layoutY="106.0" prefHeight="202.0" prefWidth="179.0">
@@ -149,7 +149,7 @@
                   <font>
                      <Font name="Arial Bold" size="13.0" />
                   </font></Label>
-               <Button id="storageBtn" mnemonicParsing="false" onAction="#onStoreBtn" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
+               <Button fx:id="storesBtn" mnemonicParsing="false" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
             </children>
          </Pane>
          <Pane layoutX="71.0" layoutY="354.0" prefHeight="202.0" prefWidth="179.0">
@@ -181,7 +181,7 @@
                   <font>
                      <Font name="Arial Bold" size="13.0" />
                   </font></Label>
-               <Button id="customerBtn" mnemonicParsing="false" onAction="#onCustomerBtn" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
+               <Button fx:id="customersBtn" mnemonicParsing="false" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
             </children>
          </Pane>
          <Pane layoutX="316.0" layoutY="354.0" prefHeight="202.0" prefWidth="179.0">
@@ -206,7 +206,7 @@
                   <font>
                      <Font name="Arial Bold" size="13.0" />
                   </font></Label>
-               <Button id="activitiesBtn" mnemonicParsing="false" onAction="#onActivityBtn" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
+               <Button fx:id="activitiesBtn" mnemonicParsing="false" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
             </children>
          </Pane>
          <Pane layoutX="559.0" layoutY="354.0" prefHeight="202.0" prefWidth="179.0">
@@ -231,7 +231,7 @@
                   <font>
                      <Font name="Arial Bold" size="13.0" />
                   </font></Label>
-               <Button id="productsBtn" mnemonicParsing="false" onAction="#onProductBtn" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
+               <Button fx:id="productsBtn" mnemonicParsing="false" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
             </children>
          </Pane>
          <Pane layoutX="559.0" layoutY="106.0" prefHeight="190.0" prefWidth="174.0">
@@ -259,7 +259,7 @@
                <Button mnemonicParsing="false" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/main.css" />
             </children>
          </Pane>
-            <Button layoutX="780.0" layoutY="15.0" mnemonicParsing="false" onAction="#onCloseBtn" styleClass="button1" stylesheets="@css/main.css" text="Close" textFill="WHITE" />
+            <Button fx:id="closeBtn" layoutX="780.0" layoutY="15.0" mnemonicParsing="false" styleClass="button1" stylesheets="@css/main.css" text="Close" textFill="WHITE" />
             <Label fx:id="selectedStore" layoutX="462.0" layoutY="27.0" style="-fx-font-weight: bold;" text="BILLA Meixnerkreuzung" textFill="WHITE">
                <font>
                   <Font size="25.0" />
