@@ -1,6 +1,5 @@
 package at.htl;
 
-import at.htl.model.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -21,8 +21,31 @@ public class MainController implements Initializable {
 
     private String chosenStore;
     private int chosenStoreId;
-    DatabaseViewController dController;
-    ProductController pController;
+    private DatabaseViewController dController;
+    private ProductController pController;
+
+    @FXML
+    private Button storeBtnMeixner;
+    @FXML
+    private Button storeBtnEuro;
+    @FXML
+    private Button storeBtnHbf;
+    @FXML
+    private Button storeBtnBuffet;
+    @FXML
+    private Button productCrudBtn;
+    @FXML
+    private Button cashiersBtn;
+    @FXML
+    private Button storesBtn;
+    @FXML
+    private Button customersBtn;
+    @FXML
+    private Button activitiesBtn;
+    @FXML
+    private Button productsBtn;
+    @FXML
+    private Button closeBtn;
 
     private double xOffset = 0;
     private double yOffset = 0;
@@ -32,9 +55,68 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        selectedStore.setText("BILLA Meixnerkreuzung");
-        chosenStore = "BILLA Meixnerkreuzung";
-        chosenStoreId = 1;
+        //DEFAULT - INIT
+        chooseStore("BILLA Meixnerkreuzung", 1);
+
+        //set listeners
+        //store buttons
+        storeBtnMeixner.setOnAction(e -> {
+            chooseStore("BILLA Meixnerkreuzung", 1);
+        });
+        storeBtnEuro.setOnAction(e -> {
+            chooseStore("EUROSPAR Leonding", 2);
+        });
+        storeBtnHbf.setOnAction(e -> {
+            chooseStore("SPAR Hauptbahnhof", 3);
+        });
+        storeBtnBuffet.setOnAction(e -> {
+            chooseStore("HTL Leonding Buffet", 4);
+        });
+        //crud button
+        productCrudBtn.setOnAction(e -> {
+            setupStage("product.fxml");
+            pController.initController(chosenStoreId);
+        });
+
+        //database View Buttons
+        cashiersBtn.setOnAction(e -> {
+            chooseDatabaseView("database.fxml", "Cashier");
+        });
+        storesBtn.setOnAction(e -> {
+            chooseDatabaseView("database.fxml", "Store");
+        });
+        customersBtn.setOnAction(e -> {
+            chooseDatabaseView("database.fxml", "Customer");
+        });
+        activitiesBtn.setOnAction(e -> {
+            chooseDatabaseView("database.fxml", "Activity");
+        });
+        productsBtn.setOnAction(e -> {
+            chooseDatabaseView("database.fxml", "Product");
+        });
+
+        //close button
+        closeBtn.setOnAction(e -> {
+            Node source = (Node)  e.getSource();
+            Stage stage  = (Stage) source.getScene().getWindow();
+            stage.close();
+        });
+    }
+
+    private void chooseStore(String text, int id){
+        selectedStore.setText(text);
+        chosenStore = text;
+        chosenStoreId = id;
+    }
+
+    private void chooseDatabaseView(String file, String table){
+        setupStage(file);
+        try {
+            dController.initData(table, chosenStore);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        dController.displayData();
     }
 
     public void setupStage(String fxmlString){
@@ -67,101 +149,5 @@ public class MainController implements Initializable {
         });
 
         stage.show();
-    }
-
-    @FXML
-    private void onCloseBtn(ActionEvent event){
-        Node source = (Node)  event.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
-        stage.close(); //Vorhang zu
-    }
-
-    @FXML
-    private void onCashierBtn(ActionEvent event) throws IOException {
-        setupStage("database.fxml");
-        try {
-            dController.initData("Cashier", chosenStore);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        dController.displayData();
-    }
-
-    @FXML
-    private void onProductBtn(ActionEvent event){
-        setupStage("database.fxml");
-        try {
-            dController.initData("Product", chosenStore);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        dController.displayData();
-    }
-
-    @FXML
-    private void onCustomerBtn(ActionEvent event){
-        setupStage("database.fxml");
-        try {
-            dController.initData("Customer", chosenStore);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        dController.displayData();
-    }
-
-    @FXML
-    private void onActivityBtn(ActionEvent event){
-        setupStage("database.fxml");
-        try {
-            dController.initData("Activity", chosenStore);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        dController.displayData();
-    }
-
-    @FXML
-    private void onStoreBtn(ActionEvent event){
-        setupStage("database.fxml");
-        try {
-            dController.initData("Store", chosenStore);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        dController.displayData();
-    }
-
-    @FXML
-    private void onCrudButton(ActionEvent event){
-        setupStage("product.fxml");
-        pController.initConnection(chosenStoreId);
-    }
-
-    @FXML
-    private void chooseHbf(ActionEvent event){
-        selectedStore.setText("SPAR Hauptbahnhof");
-        chosenStore = "SPAR Hauptbahnhof";
-        chosenStoreId = 3;
-    }
-
-    @FXML
-    private void chooseBuffet(ActionEvent event){
-        selectedStore.setText("HTL Leonding Buffet");
-        chosenStore = "HTL-Leonding Buffet";
-        chosenStoreId = 4;
-    }
-
-    @FXML
-    private void chooseMeixner(ActionEvent event){
-        selectedStore.setText("BILLA Meixnerkreuzung");
-        chosenStore = "BILLA Meixnerkreuzung";
-        chosenStoreId = 1;
-    }
-
-    @FXML
-    private void chooseEuro(ActionEvent event){
-        selectedStore.setText("EUROSPAR Leonding");
-        chosenStore = "EUROSPAR Leonding";
-        chosenStoreId = 2;
     }
 }
