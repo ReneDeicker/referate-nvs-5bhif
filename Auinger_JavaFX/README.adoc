@@ -33,6 +33,21 @@ image::images/ERD.PNG[]
 ....
 
 === 2.3 Button klicks
+==== mit EventListener
+in main.fxml
+....
+<Button fx:id="closeBtn" layoutX="780.0" layoutY="15.0" mnemonicParsing="false" styleClass="button1" stylesheets="@css/main.css" text="Close" textFill="WHITE" />
+....
+in MainController.java
+....
+        closeBtn.setOnAction(e -> {
+            Node source = (Node)  e.getSource();
+            Stage stage  = (Stage) source.getScene().getWindow();
+            stage.close();
+        });
+....
+
+==== mit onAction
 in main.fxml
 ....
 <Button layoutX="780.0" layoutY="15.0" mnemonicParsing="false" onAction="#onCloseBtn" styleClass="button1" stylesheets="@css/fullpackstyling.css" text="Close" textFill="WHITE" />
