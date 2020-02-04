@@ -62,7 +62,7 @@ in MainController.java
         stage.close(); //Vorhang zu
     } 
 ....
-=== 2.2 Veränderung von TextField
+=== 2.4 Veränderung von TextField
 in product.fxml
 ....
 <TextField fx:id="id" prefHeight="25.0" prefWidth="158.0" promptText="Id" />
@@ -83,7 +83,7 @@ in ProductController.java
         });
 ....
 
-=== 2.2 Controller verlinken
+=== 2.5 Controller verlinken
 in main.fxml
 ....
     <Button id="productsBtn" mnemonicParsing="false" onAction="#onProductBtn" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/fullpackstyling.css" />
