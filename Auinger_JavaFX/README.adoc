@@ -14,11 +14,15 @@ endif::[]
 == 1. Struktur des Referats 
 
 === link:JavaFX.pdf[Presentation-PDF]
-
-=== 2.1 ERD
+== 2 Praxis Beispiel
+image::images/main.PNG[]
+image::images/database.PNG[]
+image::images/crud.PNG[]
+== 3 Code
+=== 3.1 ERD
 image::images/ERD.PNG[]
 
-=== 2.2 FXML Laden
+=== 3.2 FXML Laden
 ....
 @Override
     public void start(Stage stage) throws IOException {
@@ -32,7 +36,22 @@ image::images/ERD.PNG[]
     }
 ....
 
-=== 2.3 Button klicks
+=== 3.3 Button klicks
+==== mit EventListener
+in main.fxml
+....
+<Button fx:id="closeBtn" layoutX="780.0" layoutY="15.0" mnemonicParsing="false" styleClass="button1" stylesheets="@css/main.css" text="Close" textFill="WHITE" />
+....
+in MainController.java
+....
+        closeBtn.setOnAction(e -> {
+            Node source = (Node)  e.getSource();
+            Stage stage  = (Stage) source.getScene().getWindow();
+            stage.close();
+        });
+....
+
+==== mit onAction
 in main.fxml
 ....
 <Button layoutX="780.0" layoutY="15.0" mnemonicParsing="false" onAction="#onCloseBtn" styleClass="button1" stylesheets="@css/fullpackstyling.css" text="Close" textFill="WHITE" />
@@ -47,7 +66,7 @@ in MainController.java
         stage.close(); //Vorhang zu
     } 
 ....
-=== 2.2 Veränderung von TextField
+=== 3.4 Veränderung von TextField
 in product.fxml
 ....
 <TextField fx:id="id" prefHeight="25.0" prefWidth="158.0" promptText="Id" />
@@ -68,7 +87,7 @@ in ProductController.java
         });
 ....
 
-=== 2.2 Controller verlinken
+=== 3.5 Controller verlinken
 in main.fxml
 ....
     <Button id="productsBtn" mnemonicParsing="false" onAction="#onProductBtn" opacity="0.2" prefHeight="190.0" prefWidth="168.0" styleClass="button2" stylesheets="@css/fullpackstyling.css" />

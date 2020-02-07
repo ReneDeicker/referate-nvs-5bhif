@@ -16,7 +16,7 @@
             </Label>
         </children>
     </Pane>
-    <Button layoutX="255.0" layoutY="8.0" mnemonicParsing="false" onAction="#onCloseBtn" styleClass="button1" stylesheets="@css/main.css" text="Close" textFill="WHITE" />
+    <Button fx:id="closeBtn" layoutX="255.0" layoutY="8.0" mnemonicParsing="false" styleClass="button1" stylesheets="@css/main.css" text="Close" textFill="WHITE" />
    <VBox layoutX="30.0" layoutY="114.0" prefHeight="372.0" prefWidth="240.0">
       <children>
          <Label text="Id:" textFill="WHITE">
@@ -65,7 +65,7 @@
          <TextField fx:id="quantity" layoutX="10.0" layoutY="224.0" prefHeight="26.0" prefWidth="186.0" promptText="Quantity" />
          <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-               <Button mnemonicParsing="false" onAction="#onCreateBtn" styleClass="crudButton" stylesheets="@css/main.css" text="CREATE" textFill="WHITE">
+               <Button fx:id="createBtn" mnemonicParsing="false" styleClass="crudButton" stylesheets="@css/main.css" text="CREATE" textFill="WHITE">
                   <font>
                      <Font size="14.0" />
                   </font>
@@ -73,7 +73,7 @@
                      <Insets right="12.0" top="15.0" />
                   </HBox.margin>
                </Button>
-               <Button mnemonicParsing="false" onAction="#onUpdateBtn" styleClass="crudButton" stylesheets="@css/main.css" text="UPDATE" textFill="WHITE">
+               <Button fx:id="updateBtn" mnemonicParsing="false" styleClass="crudButton" stylesheets="@css/main.css" text="UPDATE" textFill="WHITE">
                   <font>
                      <Font size="14.0" />
                   </font>
@@ -81,7 +81,7 @@
                      <Insets right="12.0" top="15.0" />
                   </HBox.margin>
                </Button>
-               <Button mnemonicParsing="false" onAction="#onDeleteBtn" styleClass="crudButton" stylesheets="@css/main.css" text="DELETE" textFill="WHITE">
+               <Button fx:id="deleteBtn" mnemonicParsing="false" styleClass="crudButton" stylesheets="@css/main.css" text="DELETE" textFill="WHITE">
                   <font>
                      <Font size="14.0" />
                   </font>

@@ -1,6 +1,7 @@
 package at.htl;
 
-import at.htl.db.PostgresConnectionClass;
+import at.htl.db.*;
+import at.htl.model.Product;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -9,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -25,33 +27,45 @@ import java.util.ResourceBundle;
 public class DatabaseViewController implements Initializable {
 
     ResultSet resultSet;
-    PreparedStatement statement;
+    StoreRepository storeRepository = new StoreRepository();
+    ProductRepository productRepository = new ProductRepository();
+    CustomerRepository customerRepository = new CustomerRepository();
+    CashierRepository cashierRepository = new CashierRepository();
+    ActivityRepository activityRepository = new ActivityRepository();
 
     @FXML
     private TableView databaseTableView;
     @FXML
-    private Label headerLabel;
+    private Button closeBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+        //close button
+        closeBtn.setOnAction(e -> {
+            Node source = (Node)  e.getSource();
+            Stage stage  = (Stage) source.getScene().getWindow();
+            stage.close();
+        });
     }
 
     public void initData(String type, String chosenStore) throws SQLException {
-        PostgresConnectionClass connectionClass = new PostgresConnectionClass();
-        Connection connection = connectionClass.getConnection();
-
-        if(type.equals("Customer") || type.equals("Cashier")){
-            statement = connection.prepareStatement("SELECT * FROM " + type  + " x " +
-                    "JOIN STORE s ON x.store_id = s.id JOIN PERSON p ON p.id = x.id where s.name = ? ");
-            statement.setString(1, chosenStore);
+        switch(type){
+            case "Cashier":
+                resultSet = cashierRepository.getByStore(chosenStore);
+                break;
+            case "Customer":
+                resultSet = customerRepository.getByStore(chosenStore);
+                break;
+            case "Store":
+                resultSet = storeRepository.getAll();
+                break;
+            case "Product":
+                resultSet = productRepository.getByStore(chosenStore);
+                break;
+            case "Activity":
+                resultSet = activityRepository.getByStore(chosenStore);
+                break;
         }
-        else if(type.equals("Store")){
-            statement = connection.prepareStatement("SELECT * FROM STORE");
-        }else {
-            statement = connection.prepareStatement("SELECT * FROM " + type + " x JOIN STORE s ON x.store_id = s.id where s.name = ?");
-            statement.setString(1, chosenStore);
-        }
-        resultSet = statement.executeQuery();
     }
 
     public void displayData(){
@@ -91,12 +105,5 @@ public class DatabaseViewController implements Initializable {
             e.printStackTrace();
             System.out.println("Error on Building Data");
         }
-    }
-
-    @FXML
-    private void onCloseBtn(ActionEvent event){
-        Node source = (Node)  event.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
-        stage.close();
     }
 }
