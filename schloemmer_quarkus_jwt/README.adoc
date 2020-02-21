@@ -1,0 +1,270 @@
+= Quarkus Security - JWT
+Leon Schlömmer <leon.schloemmer@posteo.at>
+v1.0, 2020-02-21
+:toc:
+
+== Why JWT?
+
+* JWT = Json Web Token
+
+JWT are used to securely transmit information between parties. This information contains mainly
+claims between different parties.
+
+An example when carrying a claim:
+"Hello Sever B, Server A told me that I could <claim goes here>, and here's the proof (the JWT)"
+
+=== Why JWT should not be used to store Sessions
+
+1. The tokens cannot be invalidated. If, for example, a user changes their password and the auth-session
+is stored in the token, then someone with the token (which should be invalid) can still access
+sensitive data
+
+2. Data stored in tokens can go stale. If, for example, a user loses their admin right, but still
+have a valid token claiming that they're admins, one would have to shut down the server to prevent
+them from attacking
+
+3. JWT can in theory be stolen
+
+=== What are claims?
+
+A claim is a right to something. JWTs contain claims. These claims can be things like the
+issuer of the token, or its expiration date. ("The token claims to be issued by the server...")
+
+=== The JWT structure
+
+JWT consist of 3 parts, that are separated by a dot (".")
+
+* Header
+* Payload
+* Signature
+
+==== The Header
+
+The header contains two parts. The type, and the signature algorithm.
+
+image::images/header.png[]
+
+==== The Payload
+
+The payload contains the claims. Common claims are:
+
+* *iss* (issuer): identifies the principal which issued the claim (_a principle can be a person, a service, a server or a client_)
+* *sub* (subject): The user the token is for, should be a user ID
+* *exp* (expiration time): The time until the token is valid
+
+image::images/payload.png[]
+
+==== The Signature
+
+The signature is what makes JWTs special. With the signature the legitimacy of a token can be
+verified. The receiver can ensure that the token wasn't modified. *The signature contains both the payload and the subject*
+
+=== The Signing Process
+
+The signing happens in multiple steps.
+
+1. The signature is created from the header and the payload. Signature = Header + Payload
+2. The signature is hashed. [hash(signature)]
+3. The hash is then encrypted with the private key
+
+Basically: encrypt(hash(signature), privateKey) = encrypted_signature
+
+How can the anyone verify that the token hasn't been modified by the bearer? When you decrypt
+the encrypted signature with the public key, you receive the original hash of the key.
+When the receiver of the key then hashes the received signature and payload, the decrypted hash
+can be compared to the just calculated hash. If the hash is equal, the key hasn't been modified.
+
+decrypt(encrypt(hash(signature), privateKey), publicKey) = hash(header + payload)
+
+==== Why this works
+
+The corresponding public key can decrypt messages encrypted from *only* the original private key.
+If someone were to change the token (add claims, change claims, etc) and encrypt the hashed signature
+with a different private key, the decryption with the _real_ public key would not return the same hash
+anymore.
+
+== Explaining Private / Public Keys
+
+Private- / Public-Key encryption is asymmetrical encryption. Generating the keys is done with certain
+algorithms.
+
+* RSA
+* DSA
+
+=== RSA
+
+RSA includes signing and encrypting for the contained message. It is good when encryption is
+needed a lot.
+
+=== DSA
+
+DSA only signs and encrypts the signature, but not the contained message. DSA is good for fast key
+generation.
+
+=== JWT in Java
+
+* All available libraries at: https://jwt.io/
+* Library of choice: https://bitbucket.org/b_c/jose4j/wiki/Home
+
+== Generating a JWT in Java
+
+=== Generating claims
+
+[source,java]
+----
+JwtClaims claims = new JwtClaims();
+claims.setIssuer("https://this-is-our.domain")
+claims.set...
+----
+
+=== Reading the Private Key
+
+[source,java]
+----
+import static io.smallrye.jwt.KeyUtils.readPrivateKey;
+...
+PrivateKey pk = readPrivateKey("/private.pem");
+----
+
+Generating the token works in 5 basic steps.
+
+1. Set the Payload (the claims)
+2. Set the key (SSL Private Keys)
+3. Set the header (type is JWT)
+4. Set the signing algorithm header
+5. serialise the key
+
+[source,java]
+----
+JwtClaims claims = getJwtClaims(uid);
+
+JsonWebSignature jws = new JsonWebSignature();
+jws.setPayload(claims.toJson()); // 1.
+jws.setKey(privateKey); // 2.
+jws.setHeader("typ", "JWT"); // 3.
+jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.RSA_USING_SHA256); // 4.
+
+return jws.getCompactSerialization(); // 5.
+----
+
+== Quarkus - Securing Resources
+
+=== Generating SSL keys to encrypt the token
+
+In the folder src/main/resources execute following commands:
+
+[source]
+----
+% openssl genpkey -out private.pem -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+% openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+----
+
+This generates RSA keys using SHA-256 cryptography. Note, the private key has to be kept
+confidential.
+
+=== Quarkus configuration
+
+Quarkus needs to know where they public key is, and if it should check for an issuer
+in the token.
+
+In application.properties, enable the Auth Mechanism:
+
+[source]
+----
+quarkus.smallrye-jwt.auth-mechanism=MP-JWT
+quarkus.smallrye-jwt.enabled=true
+----
+
+Also in application.properties, tell Quarkus the location of the public key and which issuer
+to check for:
+
+[source]
+----
+mp.jwt.verify.publickey.location=META-INF/resources/public.pem
+mp.jwt.verify.issuer=https://this-is-totally-our.domain
+----
+
+=== Securing an Endpoint
+
+[source,java]
+----
+@GET
+@PRODUCES(MediaType.TEXT_PLAIN)
+@RolesAllowed({"defaultUsers"})
+public String hello () { return "hello"; }
+----
+
+Now only users that carry a JWT claiming the role "defaultUsers" get to access this endpoint.
+The request has to be sent with the Authorization header set
+
+image::images/request.png[]
+
+== Practical Concerns - Authentication Service
+
+*NEVER STORE A USERS PASSWORD IN PLAINTEXT*
+
+Use hashing and salts to store the password in the database!
+Cleartext passwords are vulnerable to attacks, where attackers gain READ access on the Userdatabase.
+Hashing on the other hand is irreversible - once hashed, one can't get the original password back.
+You can generate a hash from a password, but not vice versa.
+
+=== Adding salts to passwords
+
+Salts are _randomness_ that are appended to a password before hashing. This way
+two users can have the same password, but different hashes are stored in the database.
+The salt is then stored in cleartext in the database, so the password can still be validated.
+
+==== Implementation
+
+* Library used to hash passwords: link:https://shiro.apache.org/realm.html[Apache Shiro]
+* Helper class: Hashed Password to store the salt and the hashed password
+
+[source,java]
+----
+public class HashedPassword {
+
+    String saltHex;
+    String hexPassword;
+
+}
+
+public class PasswordSecurityUtils {
+
+    private PasswordSecurityUtils() {}
+
+    public static HashedPassword hashPassword(String password) {
+        RandomNumberGenerator rng = new SecureRandomNumberGenerator();
+        ByteSource salt = rng.nextBytes();
+        String hashedPassword = new Sha512Hash(password, salt, 1024).toHex();
+        return new HashedPassword(salt.toHex(), hashedPassword);
+    }
+
+    public static boolean validatePassword(String submittedPassword, HashedPassword storedPassword) {
+        ByteSource salt = new SimpleByteSource(fromHex(storedPassword.getSaltHex()));
+
+        String hashToTestString = new Sha512Hash(submittedPassword, salt, 1024).toHex();
+
+        byte[] storedHash = fromHex(storedPassword.getHexPassword());
+        byte[] hashToTest = fromHex(hashToTestString);
+
+        return testIfBytesEqual(storedHash, hashToTest);
+    }
+
+    private static boolean testIfBytesEqual(byte[] storedHash, byte[] hashToTest) {
+        int diff = storedHash.length ^ hashToTest.length;
+        for (int i = 0; i < storedHash.length && i < hashToTest.length; i++) {
+            diff |= storedHash[i] ^ hashToTest[i];
+        }
+        return diff == 0;
+    }
+
+    private static byte[] fromHex(String hex) {
+        byte[] bytes = new byte[hex.length() / 2];
+        for (int i = 0; i < bytes.length; i++) {
+            bytes[i] = (byte)Integer.parseInt(hex.substring(2 * i, 2 * i + 2), 16);
+        }
+        return bytes;
+    }
+
+}
+----
