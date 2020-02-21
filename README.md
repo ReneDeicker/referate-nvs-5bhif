@@ -8,5 +8,6 @@
 ### 6. [Mobile App Development](Lengauer_MobileAppDevelopment) von Mario Lengauer (12. November 2019)
 ### 7. [Microframeworks](Prieschl_MicroFrameworks) von Fabian Prieschl (3. Dezember 2019)
 ### 8. [Django](Mayrhofer_Django) von Erik Mayrhofer (3. Dezember 2019)
+### 9. [Quarkus Security, JWT] (schloemmer_quarkus_jwt) von Leon Schlömmer (10. Dezember 2019)
 ### 9. [Soteria](Antensteiner_Soteria) von Thomas Antensteiner (17. Dezember 2019)
 ### 10. [JavaFX](Auinger_JavaFX) von Philipp Auinger (02. Februar 2020)
