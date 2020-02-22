@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7308f17d-9efd-4e3c-8f25-3fc0072087c6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/README.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/header.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/request.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/htl/ExampleResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/htl/ExampleResource.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Ul1BJpx5JqtGbPfeE3oIZGSI6M" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/META-INF/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images" />
+      <recent name="$PROJECT_DIR$/src/main/resources/META-INF/resources" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7308f17d-9efd-4e3c-8f25-3fc0072087c6" name="Default Changelist" comment="" />
+      <created>1575916230825</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575916230825</updated>
+      <workItem from="1575916232337" duration="6580000" />
+      <workItem from="1575966235284" duration="1957000" />
+      <workItem from="1576013552337" duration="434000" />
+      <workItem from="1576106693965" duration="8000" />
+      <workItem from="1579591523337" duration="43000" />
+      <workItem from="1579602324953" duration="1694000" />
+      <workItem from="1580916040191" duration="38000" />
+      <workItem from="1582295078764" duration="8009000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="625" y="-284" key="run.anything.popup" timestamp="1582302056712">
+      <screen x="0" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="625" y="-284" key="run.anything.popup/0.23.1440.877/0.-1057.1920.1057@0.-1057.1920.1057" timestamp="1582302056712" />
+  </component>
+</project>
