@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://unpkg.com/unpoly@0.61.0/dist/unpoly.min.css" integrity="sha384-Au6LjS9fxDpwn3+26YmukmOumZUmryd8ONenkVIoH4eEPH1tACqLsVfqz9tBrvQy" crossorigin="anonymous">
+    <style>
+        .table td.fit, .table th.fit {
+            white-space: nowrap;
+            width: 1%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>ToDos</h1>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th scope="col" class="fit">Id</th>
+            <th scope="col" >Title</th>
+            <th scope="col" class="fit">Actions</th>
+        </tr>
+        </thead>
+
+        {#for todo in todos}
+            <tr>
+                <th scope="row">{todo.id}</th>
+                <td >
+                {todo.title}
+                </td>
+                <td class="fit">
+                    <form action="/todo/{todo.id}/delete" method="POST" name="delete-{todo.id}" up-target=".container">
+                        <input class="btn btn-danger btn-sm" value="Delete" type="submit">
+                    </form>
+                </td>
+            </tr>
+        {/for}
+    </table>
+
+    <div class="modalenabled">
+        <form action="/todo/new" method="POST" name="todoForm" up-target=".container" enctype="multipart/form-data">
+            <h1>New ToDo</h1>
+            <div class="form-row align-items-center">
+                <div class="col-sm-3 my-1">
+                    <label class="sr-only" for="title">Title</label>
+                    <input type="text" name="title" class="form-control" id="title" placeholder="Title" required autofocus>
+                </div>
+
+                <button type="submit"  class="btn btn-primary">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
