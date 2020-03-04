@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Todo</title>
+        <h:outputStylesheet>
+            .jqplot-series-canvas {
+                background: white;
+            }
+        </h:outputStylesheet>
+    </h:head>
+    <h:body>
+        <p:outputPanel id="outputpanel">
+            <ui:insert name="header">
+                <ui:include src="/app/components/navigationbarComponent.xhtml" />
+            </ui:insert>
+            <br></br>
+            <div style="width: 75%; position: fixed; left:12.5%">
+                <ui:insert name="todoList">
+                    <ui:include src="/app/components/todoListComponent.xhtml"/>
+                </ui:insert>
+                <br></br>
+                <br></br>
+                <ui:insert name="statistics">
+                    <ui:include src="/app/components/statisticsComponent.xhtml" />
+                </ui:insert>
+            </div>
+        </p:outputPanel>
+    </h:body>
+</html>
